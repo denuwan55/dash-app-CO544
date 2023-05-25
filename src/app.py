@@ -1,21 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
-get_ipython().run_cell_magic('sh', '', 'pip install -q dash\npip install -q dash_core_components\npip install -q dash_html_components\npip install -q dash_table\n')
-
-
-# In[2]:
-
-
-get_ipython().run_cell_magic('sh', '', 'pip install -q scikit-learn\n')
-
-
-# In[3]:
-
-
 # For data analysis
 import pandas as pd
 import numpy as np
@@ -36,15 +18,8 @@ import seaborn as sns
 import plotly.express as px
 
 
-# In[4]:
-
-
 # Load dataset
 data = pd.read_csv("data/winequality-red.csv")
-
-
-# In[5]:
-
 
 # check for missing values
 print(data.isnull().sum())
@@ -52,10 +27,6 @@ print(data.isnull().sum())
 data.dropna(inplace=True)
 # Drop duplicate rows
 data.drop_duplicates(keep='first')
-
-
-# In[6]:
-
 
 # Check wine quality distribution
 plt.figure(dpi=100)
@@ -65,15 +36,9 @@ plt.ylabel("Count")
 plt.show()
 
 
-# In[7]:
-
 
 # Label quality into Good (1) and Bad (0)
 data['quality'] = data['quality'].apply(lambda x: 1 if x >= 6.0 else 0)
-
-
-# In[8]:
-
 
 # Calculate the correlation matrix
 corr_matrix = data.corr()
